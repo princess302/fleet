@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Verification -->
+   
+    <style>
+    
+      #map {
+          height: 50%;
+          width: 20;
+      }
+
+  
+  </style>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-pIZKoe8t0mgCZ8d7dtlVWcvZasZFVvs&callback=initMap"
+async defer
+ ></script>
+    <body>
+    <div id="map"></div>
+
+    <script>
+      var map;
+        function initMap() {
+            map = new google.maps.importLibrary("maps"),{
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8,
+            };
+        }
+    </script>
+
+ 
+
+    <!-- Include the Google Maps API script here -->
+  
+    Hello, {{ user.username|default:'User' }}!
+
+    <div>
+        <a href="http://your-odoo-url.com/your-page" target="_self">
+            <button type="button">View fleet management</button>
+        </a>
+    </div>
+    
+  </body>
+
+
+
+{% endblock %}
